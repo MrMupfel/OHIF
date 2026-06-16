@@ -680,6 +680,28 @@ const toolbarButtons: Button[] = [
       ],
     },
   },
+  {
+    id: 'VolumeCropping',
+    uiType: 'ohif.toolButton',
+    props: {
+      type: 'tool',
+      icon: 'tool-3d-rotate',
+      label: i18n.t('Buttons:Volume Crop'),
+      commands: [
+        {
+          commandName: 'setToolActiveToolbar',
+        },
+        {
+          commandName: 'activateVolumeCropping',
+        }
+      ],
+      evaluate: {
+        name: 'evaluate.cornerstoneTool',
+        disabledText: i18n.t('Buttons:Select a 3D viewport to enable this tool'),
+      },
+    },
+  },
+
   // {
   //   id: 'Undo',
   //   uiType: 'ohif.toolButton',

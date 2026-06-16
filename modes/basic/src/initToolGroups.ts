@@ -285,6 +285,8 @@ function initVolume3DToolGroup(extensionManager, toolGroupService) {
 
   const { toolNames, Enums } = utilityModule.exports;
 
+  console.log('Initializing Volume 3D Tool Group with tools:', toolNames);
+
   const tools = {
     active: [
       {
@@ -298,6 +300,14 @@ function initVolume3DToolGroup(extensionManager, toolGroupService) {
       {
         toolName: toolNames.Pan,
         bindings: [{ mouseButton: Enums.MouseBindings.Auxiliary }, { numTouchPoints: 3 }],
+      },
+    ],
+    passive: [
+      {
+        toolName: toolNames.VolumeCroppingTool,
+        configuration: {
+          showHandles: true,
+        }
       },
     ],
   };
