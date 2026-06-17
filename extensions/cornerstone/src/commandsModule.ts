@@ -2508,38 +2508,7 @@ function commandsModule({
 
       const renderingEngine = cornerstoneViewportService.getRenderingEngine();
       renderingEngine.render();
-    },
-
-    activateVolumeCropping: ({ options }) => {
-      const { activeViewportId } = viewportGridService.getState();
-      const viewportId = options?.viewportId ?? activeViewportId;
-
-      console.log('Activating volume cropping for viewport', viewportId);
-
-      if (!viewportId) {
-          console.warn('No active viewport found');
-          return;
-        }
-
-      // Find the specific tool group for this 3D viewport
-      const toolGroup = toolGroupService.getToolGroupForViewport(viewportId);
-
-      if (!toolGroup) {
-        console.warn('No tool group found for viewport', viewportId);
-        return;
-      }
-
-      console.log('Found tool group for viewport', toolGroup);
-
-      // Grab the instance and force the visual flags to true
-      const tool = toolGroup.getToolInstance('VolumeCropping');
-
-      if (tool) {
-        console.log('Found tool instance for volume cropping', tool);
-        tool.setHandlesVisible(true);
-        tool.setClippingPlanesVisible(true);
-      }
-    },
+    }
   };
 
   const definitions = {
@@ -2818,9 +2787,6 @@ function commandsModule({
     },
     deleteActiveAnnotation: {
       commandFn: actions.deleteActiveAnnotation,
-    },
-    activateVolumeCropping: {
-      commandFn: actions.activateVolumeCropping,
     },
     setDisplaySetsForViewports: actions.setDisplaySetsForViewports,
     undo: actions.undo,

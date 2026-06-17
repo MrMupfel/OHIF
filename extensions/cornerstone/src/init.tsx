@@ -104,6 +104,7 @@ export default async function init({
     colorbarService,
     displaySetService,
     toolbarService,
+    toolGroupService,
   } = servicesManager.services;
 
   toolbarService.registerEventForToolbarUpdate(colorbarService, [
@@ -299,6 +300,27 @@ export default async function init({
   }
 
   eventTarget.addEventListener(EVENTS.ELEMENT_ENABLED, elementEnabledHandler.bind(null));
+
+  eventTarget.addEventListener(cornerstoneTools.Enums.Events.TOOL_ACTIVATED, (evt) => {
+    const { toolGroupId, toolName } = evt.detail;
+
+    const toolGroup = toolGroupService.getToolGroup(toolGroupId);
+    if (!toolGroup) { return; }
+
+    if (!toolGroup.hasTool('VolumeCropping')) { return; }
+
+    const volumeCroppingTool = toolGroup.getToolInstance('VolumeCropping');
+    if (!volumeCroppingTool) { return; }
+
+    const isCroppingActive = toolName === 'VolumeCropping';
+    // Show handles only when tool is active
+    volumeCroppingTool.setHandlesVisible(isCroppingActive);
+    // Activate clipping planes when cropping is active and leave them one enabling zoom, pan, ...
+    // Reset via ResetViwport
+    if (isCroppingActive) {
+      volumeCroppingTool.setClippingPlanesVisible(true);
+    }
+  });
 
   colormaps.forEach(registerColormap);
 
