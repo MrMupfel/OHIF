@@ -155,6 +155,7 @@ import {
   ToolSegmentLabel,
   ToolSculptor,
   ToolLabelmapEditWithContour,
+  ToolVolumeCropping,
 } from './Sources/Tools';
 import ActionNewDialog from './Sources/ActionNewDialog';
 import NotificationInfo from './Sources/NotificationInfo';
@@ -652,6 +653,7 @@ export const Icons = {
   HelperCombineSubtract,
   HelperCombineIntersect,
   HelperCombineMerge,
+  ToolVolumeCropping,
   //
   //
   //
@@ -820,6 +822,7 @@ export const Icons = {
   'helper-combine-subtract': (props: IconProps) => HelperCombineSubtract(props),
   'helper-combine-intersect': (props: IconProps) => HelperCombineIntersect(props),
   'helper-combine-merge': (props: IconProps) => HelperCombineMerge(props),
+  'tool-volume-cropping': (props: IconProps) => ToolVolumeCropping(props),
   clipboard: (props: IconProps) => Clipboard(props),
   Undo,
   Redo,

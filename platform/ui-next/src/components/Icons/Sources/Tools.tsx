@@ -3657,3 +3657,55 @@ export const ToolLabelmapEditWithContour = (props: IconProps) => (
     />
   </svg>
 );
+
+export const ToolVolumeCropping = (props: IconProps) => (
+  <svg
+    width="28px"
+    height="28px"
+    viewBox="0 0 28 28"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g
+      id="tool-volume-cropping"
+      stroke="none"
+      strokeWidth="1"
+      fill="none"
+      fillRule="evenodd"
+    >
+      <rect
+        id="Rectangle-1"
+        x="0"
+        y="0"
+        width="28"
+        height="28"
+      ></rect>
+      <rect
+        x="13"
+        y="1"
+        width="14"
+        height="14"
+        id="Rectangle-2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      ></rect>
+      <path
+        d="M14,4C19.519,4 24,8.481 24,14"
+        id="Path-1"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      ></path>
+      <path
+        d="M24,14C24,19.519 19.519,24 14,24C8.481,24 4,19.519 4,14C4,8.481 8.481,4 14,4"
+        id="Path-2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeDasharray="1,3.2"
+      ></path>
+    </g>
+  </svg>
+);

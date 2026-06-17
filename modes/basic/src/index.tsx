@@ -216,7 +216,6 @@ export function onModeExit({ servicesManager }: withAppTypes) {
 export const toolbarSections = {
   [TOOLBAR_SECTIONS.primary]: [
     'MeasurementTools',
-    'VolumeCropping',
     'Zoom',
     'Pan',
     'TrackballRotate',

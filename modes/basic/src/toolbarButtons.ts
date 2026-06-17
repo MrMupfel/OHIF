@@ -685,8 +685,8 @@ const toolbarButtons: Button[] = [
     uiType: 'ohif.toolButton',
     props: {
       type: 'tool',
-      icon: 'tool-3d-rotate', // placeholder
-      label: i18n.t('Buttons:Volume Crop'),
+      icon: 'tool-volume-cropping',
+      label: i18n.t('Buttons:Crop 3D Volume'),
       commands: [
         {
           commandName: 'setToolActiveToolbar',
