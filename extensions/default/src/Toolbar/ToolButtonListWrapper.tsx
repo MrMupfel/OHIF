@@ -57,10 +57,17 @@ export default function ToolButtonListWrapper({ buttonSection, id }: ToolButtonL
       <div data-cy={`${id}-split-button-secondary`}>
         <ToolButtonListDropDown>
           {items.map(item => {
+            const {
+              evaluate,
+              evaluateProps,
+              isActive,
+              visible,
+              ...safeItemProps
+            } = item;
             return (
               <ToolButtonListItem
                 key={item.id}
-                {...item}
+                {...safeItemProps}
                 data-cy={item.id}
                 data-tool={item.id}
                 data-active={item.isActive}

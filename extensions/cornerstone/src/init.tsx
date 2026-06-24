@@ -310,6 +310,11 @@ export default async function init({
       return;
     }
 
+    const viewportIds = toolGroup.getViewportIds();
+    if (!viewportIds || !viewportIds.length) {
+      return;
+    }
+
     if (!toolGroup.hasTool('VolumeCropping')) {
       return;
     }

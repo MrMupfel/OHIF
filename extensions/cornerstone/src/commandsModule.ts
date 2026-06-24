@@ -1251,8 +1251,6 @@ function commandsModule({
       viewport.resetProperties?.();
       viewport.resetCamera();
 
-      // actions.resetVolumeCropping({ viewportId: viewport.id });
-
       viewport.render();
     },
     scaleViewport: ({ direction }) => {
@@ -2510,19 +2508,7 @@ function commandsModule({
 
       const renderingEngine = cornerstoneViewportService.getRenderingEngine();
       renderingEngine.render();
-    },
-    // resetVolumeCropping: ( { viewportId }) => {
-    //   if (!viewportId) {
-    //     return;
-    //   }
-
-    //   const toolGroup = toolGroupService.getToolGroupForViewport(viewportId);
-    //   if (toolGroup && toolGroup.hasTool('VolumeCropping')) {
-    //     const volumeCroppingTool = toolGroup.getToolInstance('VolumeCropping');
-    //      volumeCroppingTool.setHandlesVisible(false);
-    //      volumeCroppingTool.setClippingPlanesVisible(false);
-    //   }
-    // }
+    }
   };
 
   const definitions = {
@@ -2802,9 +2788,6 @@ function commandsModule({
     deleteActiveAnnotation: {
       commandFn: actions.deleteActiveAnnotation,
     },
-    // resetVolumeCropping: {
-    //   commandFn: actions.resetVolumeCropping,
-    // },
     setDisplaySetsForViewports: actions.setDisplaySetsForViewports,
     undo: actions.undo,
     redo: actions.redo,
