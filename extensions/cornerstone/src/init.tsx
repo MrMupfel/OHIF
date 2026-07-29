@@ -301,9 +301,8 @@ export default async function init({
 
   eventTarget.addEventListener(EVENTS.ELEMENT_ENABLED, elementEnabledHandler.bind(null));
 
-  // volume cropping handles visibility and clipping planes activation on tool activation
   eventTarget.addEventListener(cornerstoneTools.Enums.Events.TOOL_ACTIVATED, (evt) => {
-    const { toolGroupId, toolName } = evt.detail;
+    const { toolGroupId } = evt.detail;
 
     const toolGroup = toolGroupService.getToolGroup(toolGroupId);
     if (!toolGroup) {
@@ -319,18 +318,17 @@ export default async function init({
       return;
     }
 
-    const volumeCroppingTool = toolGroup.getToolInstance('VolumeCropping');
+    const volumeCroppingTool = toolGroup.getToolInstance('VolumeCropping')
     if (!volumeCroppingTool) {
       return;
     }
 
-    const isCroppingActive = toolName === 'VolumeCropping';
-    // Show handles only when tool is active
-    volumeCroppingTool.setHandlesVisible(isCroppingActive);
-    // Activate clipping planes when cropping is active and leave them one enabling zoom, pan, ...
-    // Reset via ResetViwport
+    const toolOptions = toolGroup.getToolOptions('VolumeCropping')
+    const isCroppingActive = toolOptions?.mode === cornerstoneTools.Enums.ToolModes.Active
+
+    volumeCroppingTool.setHandlesVisible(isCroppingActive)
     if (isCroppingActive) {
-      volumeCroppingTool.setClippingPlanesVisible(true);
+      volumeCroppingTool.setClippingPlanesVisible(true)
     }
   });
 
